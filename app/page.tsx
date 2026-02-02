@@ -200,18 +200,20 @@ export default function ChurrascariaBosque() {
               </div>
             </div>
 
-            <div className="relative w-full max-w-full overflow-hidden rounded-2xl">
-              <Image
-                src="/images/fotofachada-nova.png"
-                alt="Fachada da Churrascaria do Bosque"
-                width={800}
-                height={600}
-                className="w-full h-auto rounded-2xl shadow-2xl object-cover"
-              />
-              <div className="absolute -bottom-4 left-4 sm:-bottom-6 sm:-left-6 bg-red-600 text-white p-4 sm:p-6 rounded-xl">
-                <Award className="w-8 h-8 mb-2" />
-                <div className="font-bold font-lora">Referência</div>
-                <div className="text-sm font-poppins">em Guarulhos</div>
+            <div className="relative w-full max-w-full">
+              <div className="overflow-hidden rounded-2xl">
+                <Image
+                  src="/images/fotofachada-nova.png"
+                  alt="Fachada da Churrascaria do Bosque"
+                  width={800}
+                  height={600}
+                  className="w-full h-auto rounded-2xl shadow-2xl object-cover"
+                />
+              </div>
+              <div className="absolute bottom-4 left-4 sm:bottom-6 sm:left-6 bg-red-600 text-white px-4 py-3 sm:px-6 sm:py-4 rounded-xl shadow-lg min-w-[140px]">
+                <Award className="w-8 h-8 mb-2 text-white" />
+                <div className="font-bold font-lora text-white leading-tight">Referência</div>
+                <div className="text-sm font-poppins text-white/95 leading-tight">em Guarulhos</div>
               </div>
             </div>
           </div>
