@@ -673,12 +673,8 @@ export default function ChurrascariaBosque() {
                 </li>
                 <li>
                   <Link href="#servicos" className="hover:text-red-400 transition-colors inline-block min-h-[44px] leading-[44px] py-0">
-                    Buffet para Casamentos
-                  </Link>
-                </li>
-                <li>
-                  <Link href="#servicos" className="hover:text-red-400 transition-colors inline-block min-h-[44px] leading-[44px] py-0">
-                    Espaço p/ casamentos
+                    Venha fazer seu evento aqui
+                     (Aniversario, Batizados e Casamentos e etc)
                   </Link>
                 </li>
                 <li>
