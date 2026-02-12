@@ -338,7 +338,7 @@ export default function ChurrascariaBosque() {
                 </div>
                 <CardTitle className="text-2xl font-lora text-white">Rodízio Completo</CardTitle>
                 <CardDescription className="text-gray-400 font-poppins">
-                  Tudo incluso exceto bebidas e sobremesas
+                  Rodizio de carnes C/ buffet de saladas e massas
                 </CardDescription>
               </CardHeader>
               <CardContent className="space-y-4 flex-grow">
@@ -394,6 +394,10 @@ export default function ChurrascariaBosque() {
                   </li>
                   <li className="flex items-center space-x-2">
                     <div className="w-2 h-2 bg-red-500 rounded-full"></div>
+                    <span>Rodizio de carnes C/ buffet de saladas e massas</span>
+                  </li>
+                  <li className="flex items-center space-x-2">
+                    <div className="w-2 h-2 bg-red-500 rounded-full"></div>
                     <span>Atendimento personalizado</span>
                   </li>
                 </ul>
@@ -419,7 +423,11 @@ export default function ChurrascariaBosque() {
                 <ul className="space-y-2 text-gray-300 font-poppins">
                   <li className="flex items-center space-x-2">
                     <div className="w-2 h-2 bg-red-500 rounded-full"></div>
-                    <span>Buffet Completo</span>
+                    <span>Rodizio de carnes C/ buffet de saladas e massas</span>
+                  </li>
+                  <li className="flex items-center space-x-2">
+                    <div className="w-2 h-2 bg-red-500 rounded-full"></div>
+                    <span>Espaço para casamentos</span>
                   </li>
                   <li className="flex items-center space-x-2">
                     <div className="w-2 h-2 bg-red-500 rounded-full"></div>
@@ -666,6 +674,11 @@ export default function ChurrascariaBosque() {
                 <li>
                   <Link href="#servicos" className="hover:text-red-400 transition-colors inline-block min-h-[44px] leading-[44px] py-0">
                     Buffet para Casamentos
+                  </Link>
+                </li>
+                <li>
+                  <Link href="#servicos" className="hover:text-red-400 transition-colors inline-block min-h-[44px] leading-[44px] py-0">
+                    Espaço p/ casamentos
                   </Link>
                 </li>
                 <li>
