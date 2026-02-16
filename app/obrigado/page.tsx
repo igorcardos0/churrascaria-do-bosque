@@ -7,27 +7,46 @@ import { useSearchParams } from "next/navigation"
 
 function ObrigadoContent() {
   const searchParams = useSearchParams()
-  const encodedUrl = searchParams.get("url")
   const [seconds, setSeconds] = useState(4)
   const [error, setError] = useState<string | null>(null)
+  const [targetUrl, setTargetUrl] = useState<string | null>(null)
 
   useEffect(() => {
+    // Usar window.location.search para funcionar com export estático
+    // Fallback para useSearchParams caso esteja disponível
+    let encodedUrl: string | null = null
+    
+    if (typeof window !== "undefined") {
+      const urlParams = new URLSearchParams(window.location.search)
+      encodedUrl = urlParams.get("url")
+    }
+    
+    // Fallback para useSearchParams se window.location não funcionar
+    if (!encodedUrl && searchParams) {
+      encodedUrl = searchParams.get("url")
+    }
+
     if (!encodedUrl || encodedUrl.trim() === "") {
       setError("Link de redirecionamento não informado.")
       return
     }
 
-    let targetUrl: string
+    let decodedUrl: string
     try {
-      targetUrl = decodeURIComponent(encodedUrl)
-      if (!targetUrl.startsWith("http") && !targetUrl.startsWith("tel:") && !targetUrl.startsWith("mailto:")) {
+      decodedUrl = decodeURIComponent(encodedUrl)
+      if (!decodedUrl.startsWith("http") && !decodedUrl.startsWith("tel:") && !decodedUrl.startsWith("mailto:")) {
         setError("Link de redirecionamento inválido.")
         return
       }
+      setTargetUrl(decodedUrl)
     } catch {
       setError("Link de redirecionamento inválido.")
       return
     }
+  }, [searchParams])
+
+  useEffect(() => {
+    if (!targetUrl) return
 
     const interval = setInterval(() => {
       setSeconds((prev) => {
@@ -41,7 +60,7 @@ function ObrigadoContent() {
     }, 1000)
 
     return () => clearInterval(interval)
-  }, [encodedUrl])
+  }, [targetUrl])
 
   if (error) {
     return (
@@ -57,6 +76,17 @@ function ObrigadoContent() {
     )
   }
 
+  if (!targetUrl) {
+    return (
+      <div className="min-h-screen bg-black text-white flex items-center justify-center px-4">
+        <div className="max-w-md w-full text-center space-y-6">
+          <div className="w-12 h-12 rounded-full border-4 border-red-600 border-t-transparent animate-spin mx-auto" />
+          <p className="text-gray-400 font-poppins">Carregando...</p>
+        </div>
+      </div>
+    )
+  }
+
   return (
     <div className="min-h-screen bg-black text-white flex items-center justify-center px-4">
       <div className="max-w-md w-full text-center space-y-8">
@@ -67,13 +97,23 @@ function ObrigadoContent() {
         <div className="flex justify-center">
           <div className="w-16 h-16 rounded-full border-4 border-red-600 border-t-transparent animate-spin" />
         </div>
-        <p className="text-sm text-gray-500 font-poppins">
-          Se não for redirecionado,{" "}
-          <Link href="/" className="text-red-400 hover:underline">
-            clique aqui para voltar
-          </Link>
-          .
-        </p>
+        <div className="space-y-4">
+          <Button
+            onClick={() => {
+              window.location.href = targetUrl
+            }}
+            className="bg-red-600 hover:bg-red-700 font-poppins w-full"
+          >
+            Continuar Agora
+          </Button>
+          <p className="text-sm text-gray-500 font-poppins">
+            Ou{" "}
+            <Link href="/" className="text-red-400 hover:underline">
+              clique aqui para voltar
+            </Link>
+            .
+          </p>
+        </div>
       </div>
     </div>
   )
