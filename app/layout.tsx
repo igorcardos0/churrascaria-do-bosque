@@ -22,8 +22,8 @@ export const metadata: Metadata = {
     "Há mais de 20 anos servindo o melhor churrasco de Guarulhos. Cortes nobres, buffet completo e ambiente elegante. Reserve sua mesa!",
   keywords: "churrascaria, churrasco, Guarulhos, restaurante, cortes nobres, buffet, eventos corporativos, casamentos",
   icons: {
-    icon: "/images/logo-horizontal-branco.png",
-    apple: "/images/logo-horizontal-branco.png",
+    icon: "/icon.png",
+    apple: "/icon.png",
   },
 }
 

@@ -390,10 +390,6 @@ export default function ChurrascariaBosque() {
                   </li>
                   <li className="flex items-center space-x-2">
                     <div className="w-2 h-2 bg-red-500 rounded-full"></div>
-                    <span>Buffet Completo e Rodízio</span>
-                  </li>
-                  <li className="flex items-center space-x-2">
-                    <div className="w-2 h-2 bg-red-500 rounded-full"></div>
                     <span>Rodizio de carnes C/ buffet de saladas e massas</span>
                   </li>
                   <li className="flex items-center space-x-2">
